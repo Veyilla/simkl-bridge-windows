@@ -1,23 +1,41 @@
-# Installation unter Windows
+# Installieren, aktualisieren und deinstallieren
 
-1. Den Installer `Simkl-Bridge-…-Windows-x64-Setup.exe` starten.
-2. Deutsch oder Englisch wählen und die Installation für den angemeldeten Benutzer abschließen.
-3. Simkl Bridge über das Startmenü öffnen. Die Einrichtung führt zur Simkl-Anmeldung und den Listen.
+[English](installation.en.md) · **Deutsch**
 
-Es werden weder Docker noch Python oder Node benötigt. Der Installer ersetzt keine vorhandene Python-Bridge und übernimmt keine persönlichen Einstellungen daraus.
+[README](../README.de.md) · [Einrichtungsanleitung](setup-simkl.de.md)
 
-Das Setup verwendet einen schwarzen Hintergrund und weiße Schrift, auch im Lizenzfeld. Titelleiste, Schaltflächen und Scrollbalken verwenden den eingebauten Dunkelstil und können dunkelgrau sein. Windows-Sicherheitsabfragen werden von Windows gestaltet. Ein aktiviertes Windows-Kontrastdesign hat Vorrang.
+## Vorabversion installieren
+
+In diesem Repository gibt es noch kein Release zum Herunterladen. Diese Schritte gelten, wenn du bereits einen Vorabversions-Installer hast. Andernfalls kannst du die App [selbst bauen](../README.de.md#selbst-bauen). Sobald Releases verfügbar sind, findest du sie auf der [Releases-Seite](https://github.com/Veyilla/simkl-bridge-windows/releases) dieses Repositorys.
+
+1. Schließe eine laufende Simkl Bridge über **Beenden** im Menü neben der Uhr.
+2. Starte die Datei `Simkl-Bridge-…-Windows-x64-Setup.exe`.
+3. Wähle Deutsch oder Englisch und schließe die Installation für dein Windows-Benutzerkonto ab.
+4. Öffne **Simkl Bridge** über das Startmenü. Beim ersten Start erscheinen Anmeldung und Listeneinstellungen.
+5. Folge der [Schritt-für-Schritt-Anleitung](setup-simkl.de.md).
+
+Docker, Python und Node werden nicht benötigt. Die Installation gilt für den angemeldeten Benutzer; Administratorrechte sollen nicht erforderlich sein. Der Installer übernimmt keine Konfiguration anderer Bridge-Apps.
 
 ## Aktualisieren
 
-Den neuen Installer ausführen und denselben Installationsordner verwenden. Einstellungen und Anmeldung liegen außerhalb des Programmordners und bleiben erhalten. Die App sollte vorher über **Beenden** geschlossen werden.
+1. Wähle in Simkl Bridge **Beenden**.
+2. Führe den neuen Installer aus und verwende denselben Installationsordner.
+3. Öffne Simkl Bridge erneut. Die gespeicherte Anmeldung und Listenzuordnung werden wiederverwendet.
 
-## Autostart und Deinstallation
+Wenn du später den Bridge-Port änderst, kopiere die aktualisierten Listenadressen in Sonarr oder Radarr.
 
-**Mit Windows starten** im Tray-Menü schaltet ausschließlich den Autostart dieser App für den aktuellen Benutzer. Die normale Windows-Deinstallation entfernt die Programmdateien und den zugehörigen eigenen Autostart-Eintrag. Persönliche Einstellungen, Anmeldung und Cache bleiben erhalten; die App enthält keine automatische Löschung dieser Daten.
+## Mit Windows starten
+
+Klicke mit der rechten Maustaste auf das S-Symbol neben der Windows-Uhr und aktiviere **Mit Windows starten**. Deaktiviere dieselbe Option, wenn du die App lieber manuell öffnest. Die Einstellung gilt für den aktuellen Windows-Benutzer.
+
+## Deinstallieren
+
+Beende die App und deinstalliere **Simkl Bridge** über die Windows-Einstellungen. Die normale Deinstallation entfernt die Programmdateien und den eigenen Autostart-Eintrag. Anmeldung, Einstellungen und Listencache bleiben in `%LOCALAPPDATA%\SimklBridge` erhalten.
 
 ## Hinweise zur Vorabversion
 
-Das Paket ist nicht digital signiert. Prüfe seine Herkunft und die mitgelieferte Prüfsumme. Die vollständige persönliche Einrichtung und die Darstellung auf allen Bildschirmkonfigurationen müssen vor einer allgemeinen Freigabe praktisch geprüft werden.
+- Der Installer ist nicht digital signiert. Prüfe vor dem Start die Herkunft des Pakets und gegebenenfalls die mitgelieferte Prüfsumme.
+- Das Setup verwendet schwarze Flächen und weiße Schrift. Die eingebauten dunklen Schaltflächen, die Titelleiste und die Scrollbalken können dunkelgrau sein. Windows-Sicherheitsabfragen verwenden die Windows-Darstellung; ein Kontrastdesign hat Vorrang.
+- Noch nicht jede physische Monitoranordnung und jeder Langzeitfall ist geprüft. Melde nachvollziehbare Probleme unter [Issues](https://github.com/Veyilla/simkl-bridge-windows/issues), ohne Tokens oder andere private Angaben.
 
-Wird „Einstellungen prüfen“ angezeigt, kontrolliere die AUTH-V2-Client-ID, PRO/VIP, Listenzuordnung und den lokalen Port. Port 8787 kann bereits von einer anderen Bridge verwendet werden; wähle dann einen anderen freien Port und kopiere die Listenadressen erneut.
+Hinweise zu Anmeldefehlern, leeren Listen und belegten Ports stehen unter [Fehlerbehebung](setup-simkl.de.md#fehlerbehebung).

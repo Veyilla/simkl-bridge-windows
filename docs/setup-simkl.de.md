@@ -1,56 +1,93 @@
-# Simkl in wenigen Schritten verbinden
+# Simkl Bridge einrichten
 
-Diese Anleitung gehört zur Windows-Vorabversion. Anmeldung, Listen und Einstellungen befinden sich direkt im Tray-Menü.
+[English](setup-simkl.en.md) · **Deutsch**
 
-## Was du brauchst
+[README](../README.de.md) · [Installation](installation.de.md) · [Fehlerbehebung](#fehlerbehebung)
 
-Ein Simkl-Konto mit PRO oder VIP fuer den Abruf eigener Custom Lists. Die normalen Kategorien wie „Watching“ und „Plan to Watch“ sind etwas anderes als selbst benannte Listen. [Simkl: Custom Lists](https://api.simkl.org/guides/custom-lists)
+Führe diese Schritte einmal für deine erste Liste aus. Unter **Einstellungen** kannst du später weitere Listen hinzufügen oder den Port ändern. Du hast bereits eine gültige AUTH-V2-Client-ID? Dann beginne bei [Konto verbinden](#2-konto-verbinden).
+
+Die App startet unabhängig von der Installationssprache zunächst auf Deutsch. Wenn du Englisch bevorzugst, wähle **Zurück**, dann unten im Hauptmenü **English** und öffne die Einstellungen erneut. Die folgenden Schritte verwenden die deutschen Beschriftungen.
+
+## Bevor du anfängst
+
+Sonarr und/oder Radarr müssen auf demselben Windows-Rechner installiert sein. Außerdem brauchst du ein Simkl-Konto mit **PRO oder VIP** und eine Custom List mit den gewünschten Titeln. Kostenloses Loyalty-PRO zählt ebenfalls.
+
+Eine **Custom List** ist eine Sammlung, die du auf Simkl selbst benennst. Sie ist etwas anderes als die eingebauten Kategorien **Watching** und **Plan to Watch**. Ein Titel in einer solchen Kategorie erscheint nicht automatisch in deiner Custom List. [Simkls Erklärung zu Custom Lists](https://api.simkl.org/guides/custom-lists)
 
 ## Kostenloses PRO ohne bezahltes Abo
 
-Auch das kostenlose PRO aus dem Simkl-Treueprogramm zählt als PRO-Zugang:
-
 1. Nutze angemeldet die Simkl-Webseite oder die Simkl-Lists-App an mindestens **20 Tagen im Monat**.
 2. Öffne die [Treueprogramm-Seite](https://simkl.com/vip/loyalty/) und prüfe deinen Fortschritt.
-3. Sobald verfügbar, klicke **Claim Free PRO**. Das schaltet PRO für einen Monat frei.
+3. Sobald verfügbar, wähle **Claim Free PRO**. Damit wird PRO für einen Monat freigeschaltet.
 4. Wiederhole die Freischaltung monatlich; sie verlängert sich nicht automatisch.
 
-Dafür ist kein bezahltes Abo nötig. Die Bridge sammelt keine Nutzungstage automatisch. Maßgeblich sind die [aktuellen Simkl-Bedingungen](https://docs.simkl.org/how-to-use-simkl/account-and-billing/special-plans/offers/loyalty-program).
+Für diesen Weg ist kein bezahltes Abo nötig. Die Bridge sammelt keine Nutzungstage automatisch. [Aktuelle Simkl-Bedingungen](https://docs.simkl.org/how-to-use-simkl/account-and-billing/special-plans/offers/loyalty-program)
 
-## 1. Eine V2-App bei Simkl anlegen
+## 1. Eine Simkl-App mit AUTH V2 registrieren
 
-1. Melde dich bei Simkl an und oeffne [Einstellungen → Developer](https://simkl.com/settings/developer/).
+Die Registrierung gibt deiner Bridge eine **Client-ID**. Sie erstellt kein weiteres Simkl-Konto.
+
+1. Melde dich bei Simkl an und öffne [Einstellungen → Developer](https://simkl.com/settings/developer/).
 2. Erstelle eine neue App mit **AUTH V2**.
-3. Waehle fuer diese Bridge **TV, devices & command line**. Die App verwendet die dortige Anmeldung per Code, auch auf einem Windows-PC.
-4. Als Namen kannst du **List Bridge for Simkl** verwenden. Die optionalen Angaben duerfen leer bleiben.
-5. Pruefe die Angaben und erstelle die App. Kopiere ihre **Client ID**.
+3. Wähle **TV, devices & command line**. Diese Option gilt auch für Skripte und Windows-Apps mit Anmeldung per Code.
+4. Gib beispielsweise **List Bridge for Simkl** als Namen ein. Optionale Felder für Beschreibung, Homepage und Kontakt dürfen leer bleiben.
+5. Prüfe die Angaben und erstelle die App.
+6. Kopiere die **Client ID**. Du fügst sie im nächsten Schritt in die Bridge ein.
 
-Fuer diesen App-Typ brauchst du weder Client Secret noch Redirect-URL. Eine Registrierung reicht fuer Film-, Serien- und Anime-Listen. [Simkl: Anmeldung einrichten](https://api.simkl.org/api-reference/auth)
+Eine Registrierung reicht für Film-, Serien- und Anime-Listen. Für diesen App-Typ brauchst du **kein Client Secret und keine Redirect-URL**. Eine nicht verifizierte eigene App kann verwendet werden. [Simkl-Dokumentation zur Anmeldung](https://api.simkl.org/api-reference/auth)
 
-## 2. Mit der Bridge verbinden
+## 2. Konto verbinden
 
-Unter Anmeldung traegst du die Client ID ein und waehlst „Mit Simkl verbinden“. Oeffne den angebotenen Link in deinem Browser und bestaetige den lesenden Zugriff. Die Bridge uebernimmt den technischen Austausch und speichert ihre Anmeldung lokal. Du musst keine Tokens kopieren oder Befehle eingeben.
+1. Öffne Simkl Bridge. Falls das Hauptmenü angezeigt wird, wähle **Einstellungen → Anmeldung**.
+2. Füge die Client-ID in **Client-ID deiner AUTH-V2-App** ein.
+3. Wähle **Mit Simkl verbinden**. Im Menü erscheint ein kurzer Anmeldecode.
+4. Wähle **Browser öffnen**. Prüfe, ob du dort im gewünschten Simkl-Konto angemeldet bist. Gib den Code ein, falls du dazu aufgefordert wirst, und bestätige den lesenden Zugriff.
+5. Warte, bis die Bridge die erfolgreiche Anmeldung meldet. Lass die Einstellungsseite währenddessen geöffnet.
 
-Die Client ID bezeichnet die registrierte App. Erst deine Bestaetigung verbindet dein Konto. Access Token und Refresh Token bleiben privat. [Simkl: AUTH V2](https://api.simkl.org/api-reference/auth-v2)
+Die Bridge speichert die Anmeldung geschützt in deinem Windows-Benutzerkonto. Du musst keine Access-Tokens oder Refresh-Tokens kopieren. Die Client-ID bezeichnet die App; deine Bestätigung im Browser verbindet dein Konto.
 
-## 3. Listen zuordnen
+## 3. Liste auswählen und Adresse kopieren
 
-Waehle die gewuenschte Liste und das Ziel Sonarr oder Radarr. Die Bridge stellt die dazugehoerige lokale Listenadresse bereit, die du im Zielprogramm unter „Benutzerdefinierte Liste“ eintraegst. Alternativ kannst du direkt einen Simkl-Listenlink oder eine Listen-ID eingeben.
+1. Öffne **Listen** und wähle **Meine Listen laden**.
+2. Markiere eine Liste. Wähle **Auswahl → Sonarr** für Serien oder **Auswahl → Radarr** für Filme. Alternativ kannst du einen Simkl-Listenlink oder eine Listen-ID einfügen und den passenden Knopf **Link → …** verwenden.
+3. Markiere den hinzugefügten Eintrag in der unteren Liste und wähle **Adresse kopieren**.
+4. Wähle **Speichern und zurück**. Falls die Bridge gestoppt ist, wähle **Bridge starten**.
 
-Vor dem Speichern pruefst du die Aufraeumoptionen des Zielprogramms: Sie koennen bestimmen, was mit Titeln passiert, die nicht mehr in einer Liste stehen. Die Bridge aendert diese Einstellungen nicht selbst.
+Die Adresse liegt nun in der Zwischenablage. Du verwendest sie im nächsten Abschnitt. Speichere und verlasse die Einstellungsseite vor dem Test in Sonarr oder Radarr: Während der Bearbeitung pausiert der Bridge-Dienst. Wiederhole die Schritte für jede Liste und jedes Ziel.
+
+## 4. Importliste in Sonarr oder Radarr hinzufügen
+
+Im jeweiligen Zielprogramm:
+
+1. Öffne **Einstellungen → Importlisten** und wähle **+**.
+2. Wähle **Benutzerdefinierte Liste** beziehungsweise **Custom List**, falls deine Oberfläche englisch ist.
+3. Gib der Importliste einen erkennbaren Namen und füge die kopierte Bridge-Adresse in das URL-Feld ein.
+4. Wähle den gewünschten Root-Ordner und das Qualitätsprofil. Entscheide, ob neue Titel automatisch überwacht und gesucht werden sollen.
+5. Prüfe vor dem ersten Import die Aufräumoptionen der Mediathek. Sie bestimmen den Umgang mit Titeln, die aus Listen verschwinden; die Bridge ändert diese Einstellung nicht.
+6. Wähle **Prüfen**, dann **Speichern**. Starte die Listenaktualisierung im Zielprogramm oder warte auf dessen geplanten Abruf.
+
+Sonarr und Radarr haben eigene Importintervalle. Die Bridge liefert die Listen; sie bestimmt weder die Downloadqualität noch startet sie Importe über einen Administratorschlüssel. Beide Zielprogramme müssen die Bridge auf demselben Rechner erreichen können.
+
+## 5. Mit Windows starten
+
+Klicke mit der rechten Maustaste auf das S-Symbol neben der Uhr und aktiviere **Mit Windows starten**. Mit **Bridge stoppen** stoppst du nur den Dienst; mit **Beenden** schließt du die gesamte App. Beim nächsten Start werden Anmeldung und Listen wiederverwendet.
 
 ## Warum AUTH V1 hier nicht funktioniert
 
-Gemeint ist das alte **Anmeldesystem AUTH V1**, nicht jede bisherige API-Funktion. Die Custom-Lists-Schnittstelle verlangt schon jetzt AUTH V2. Eine alte V1-Client-ID laesst sich nicht umschalten; du registrierst eine neue V2-App und meldest dich damit neu an. [Custom-Lists-Voraussetzungen](https://api.simkl.org/guides/custom-lists), [Umstieg auf V2](https://api.simkl.org/guides/migrating-v1-to-v2)
+Custom Lists verlangen **AUTH V2**. Eine V1-Client-ID lässt sich nicht umwandeln: Registriere eine separate V2-App und verbinde dich mit ihrer Client-ID neu. [Anleitung für den Umstieg](https://api.simkl.org/guides/migrating-v1-to-v2)
 
-**Gepruefter Stand: 3. November 2026.** Simkl erwartet die Abschaltung von AUTH V1 ungefaehr im April 2027. Ein verbindlicher genauer Termin steht noch nicht fest. Die verlinkte offizielle Seite ist fuer spaetere Aenderungen massgeblich. [Offizielle Ankuendigung](https://api.simkl.org/api-reference/auth-v1)
+Bei der dokumentierten Prüfung vom **3. November 2026** nannte Simkl **ungefähr April 2027** für die Abschaltung von AUTH V1, ohne festen Termin. Die [offizielle AUTH-V1-Ankündigung](https://api.simkl.org/api-reference/auth-v1) ist für spätere Änderungen maßgeblich.
 
-## Wenn es nicht klappt
+## Fehlerbehebung
 
-- **Falsche Client ID / invalid_client:** Pruefe, ob sie wirklich zu einer AUTH-V2-App gehoert.
-- **V1 funktioniert sonst noch:** Das aendert nichts an der V2-Pflicht fuer Custom Lists.
-- **PRO/VIP erforderlich:** Die API prueft das Konto, mit dem du den Zugriff bestaetigt hast.
-- **Liste leer:** Pruefe ihre Inhalte und ob es wirklich die gewuenschte eigene Liste ist.
+| Was du siehst | Was du prüfen kannst |
+|---|---|
+| `invalid_client` oder ein Hinweis auf die Client-ID | Verwende die vollständige Client-ID einer **AUTH-V2**-Registrierung. |
+| Anmeldung erforderlich | Öffne **Einstellungen → Anmeldung** und verbinde dich erneut. Bestätige im Browser das gewünschte Konto. |
+| PRO/VIP erforderlich | Prüfe den aktuellen Status des bestätigten Kontos. Kostenloses PRO muss manuell freigeschaltet und verlängert werden. |
+| Leere Liste | Öffne die Custom List auf Simkl und prüfe ihren Inhalt. Eine eingebaute Statuskategorie ist eine andere Liste. |
+| Prüfen schlägt in Sonarr/Radarr fehl | Verlasse die Bridge-Einstellungen mit **Speichern und zurück** und starte die Bridge. Kopiere die Adresse bei geändertem Port erneut. |
+| Port bereits belegt | Eine andere App oder ältere Bridge kann Port 8787 verwenden. Wähle unter **Einstellungen → Allgemein** einen unbenutzten Port, speichere und kopiere die neuen Adressen. |
+| Falsches Ziel oder fehlende Kennungen | Ordne Serien Sonarr und Filme Radarr zu. Prüfe das **Protokoll** auf fehlende TVDB-/TMDb-Kennungen. |
 
-Mit Zurück gelangst du aus den Unterseiten wieder ins Hauptmenü. Die Anmeldung im Browser bleibt davon getrennt. Persönliche Daten sind im Quellcode und im Installationspaket nicht enthalten.
-
+Unter [Installation](installation.de.md) stehen Hinweise zu Updates und Deinstallation. [So funktioniert die Aktualisierung](refresh.de.md) erklärt den Listencache.

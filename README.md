@@ -1,63 +1,86 @@
-# Simkl Bridge für Windows
+<p align="center">
+  <img src="docs/images/simkl.png" width="88" height="88" alt="Simkl Bridge icon: a white S on black">
+</p>
 
-Eine eigenständige Windows-App im Infobereich für eigene Simkl-Listen in Sonarr und Radarr. Ohne Docker, Python oder Node.
+# Simkl Bridge for Windows
 
-**Stand: erste Vorabversion.** Die automatischen Prüfungen werden beim Paketbau ausgeführt. Die persönliche Einrichtung und die vollständige Sichtprüfung aller Windows-Skalierungen sind separate Schritte; die vorhandene Bridge wird nicht übernommen oder verändert.
+Import Simkl Custom Lists into Sonarr and Radarr with a compact Windows tray app. No Docker, Python or Node runtime required.
 
-[English](README.en.md) · [Einrichtung](docs/setup-simkl.de.md) · [Installation](docs/installation.de.md)
+[![Windows x64](https://img.shields.io/badge/Windows-x64-0078D4?style=flat-square)](docs/installation.en.md)
+[![Version](https://img.shields.io/badge/Version-0.1.0--preview.4-D9A441?style=flat-square)](https://github.com/Veyilla/simkl-bridge-windows/commits/main/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-3DA66D?style=flat-square)](LICENSE)
 
-## Installieren
+**English** · [Deutsch](README.de.md)
 
-Den Windows-x64-Installer aus dem Paket beziehungsweise den GitHub-Artefakten herunterladen und ausführen. Er installiert für den angemeldeten Benutzer; Administratorrechte sind nicht vorgesehen. Die App erscheint anschließend als **Simkl Bridge** im Startmenü. Der erste Start öffnet die Einrichtung.
+[Installation](docs/installation.en.md) · [Setup guide](docs/setup-simkl.en.md) · [Troubleshooting](docs/setup-simkl.en.md#troubleshooting)
 
-Eine selbst gebaute Vorabversion ist nicht digital signiert. Windows kann deshalb nach einer Bestätigung fragen. Prüfe Herkunft und Prüfsumme des Pakets.
+## What it does
 
-## Einrichten
+- Makes selected Simkl Custom Lists available as local import lists for Sonarr and Radarr.
+- Provides start, stop, restart, Windows startup, settings and logs from one tray menu.
+- Keeps sign-in and list settings between sessions. No console window needs to stay open.
+- Supports an AMOLED-black interface with German and English labels.
 
-1. Eine eigene **AUTH-V2-App** bei Simkl registrieren: **TV, devices & command line**.
-2. Unter **Anmeldung** die Client-ID eintragen, **Mit Simkl verbinden** wählen und den Code im Browser bestätigen. Die App fordert ausschließlich lesenden Zugriff an.
-3. Unter **Listen** die eigenen Listen laden oder einen Simkl-Listenlink einfügen. Sonarr beziehungsweise Radarr als Ziel wählen.
-4. Die eingerichtete Liste markieren und **Listenadresse kopieren** wählen.
-5. In Sonarr **Benutzerdefinierte Liste**, in Radarr **Benutzerdefinierte Liste / Custom List** als Importquelle verwenden und die lokale Adresse einfügen. Beide Programme müssen auf demselben Rechner laufen.
-6. Einstellungen speichern. Im Rechtsklick-Menü bei Bedarf **Mit Windows starten** einschalten.
+**Preview:** the core workflow is available, but not every monitor arrangement and long-term scenario has been verified. Builds are currently unsigned.
 
-Für Custom Lists verlangt Simkl **PRO oder VIP und AUTH V2**. Eine nicht verifizierte eigene App kann verwendet werden. Es werden keine Sonarr-/Radarr-Administratorschlüssel benötigt. [Ausführliche Anleitung](docs/setup-simkl.de.md)
+## Requirements
 
-**PRO geht auch kostenlos ohne bezahltes Abo:** Über Simkls Treueprogramm kannst du PRO freischalten. Die [deutsche Schritt-für-Schritt-Erklärung](docs/setup-simkl.de.md#kostenloses-pro-ohne-bezahltes-abo) und die [englische Erklärung](docs/setup-simkl.en.md#free-pro-without-a-paid-subscription) beschreiben Nutzungstage und monatliche Aktivierung.
+- Windows x64, with Sonarr and/or Radarr running on the same computer.
+- A Simkl account with **PRO or VIP**, including free Loyalty PRO.
+- A personal Simkl **AUTH V2** app registration. You do not need a client secret or Sonarr/Radarr administrator API keys.
 
-## Bedienung
+**Free PRO:** a paid subscription is not required. The [setup guide](docs/setup-simkl.en.md#free-pro-without-a-paid-subscription) explains Simkl's activity requirement and monthly activation.
 
-- Rechtsklick auf das Simkl-Symbol: starten, stoppen, neu starten, Autostart, Einstellungen, Protokoll und Über. Alle Unterseiten erscheinen im selben kompakten Menü; Zurück führt ins Hauptmenü.
-- Grün: Bridge läuft. Gelb: Start oder Wiederanlauf. Rot: gestoppt oder verständlich benannter Fehler. Der Hinweis beim Darüberfahren zeigt denselben Zustand.
-- **Bridge stoppen** lässt das Tray-Symbol bestehen. **Beenden** beendet auch den eigenen Bridge-Prozess.
-- Nach Abstürzen höchstens drei Wiederanläufe nach 2, 5 und 15 Sekunden. Nach einer stabilen Minute beginnt die Zählung neu. Anmelde-/Einrichtungsfehler lösen keine Endlosschleife aus.
-- Deutsch und Englisch lassen sich im Tray-Menü wählen. Ein zweiter Programmstart öffnet die vorhandene Bedienung.
+## Installation
 
-## Listen und Datenschutz
+No downloadable release has been published in this repository yet. If you already have a preview installer, follow the [installation guide](docs/installation.en.md). Otherwise, use the [build instructions](#building-from-source). Future downloads will be listed under [Releases](https://github.com/Veyilla/simkl-bridge-windows/releases).
 
-Die App stellt nur eingerichtete Listen über `127.0.0.1` bereit. Sonarr erhält TVDB-Kennungen, Radarr TMDb-Kennungen. Episodische Anime und Anime-Filme werden passend zugeordnet. Fehlende Kennungen und unvollständige Antworten führen zu einem Fehler, nicht zu einer scheinbar leeren Erfolgsliste.
+## Quick setup
 
-Unveränderte Inhalte werden zwischengespeichert, auch über einen Neustart hinweg. Bei eigenen Listen werden zuerst Aktivitäten und bei Bedarf die Listen-Zeitstempel geprüft. Automatische Listen werden bei Benutzung höchstens einmal täglich neu geladen. Fremde Listen werden über die Übersicht des jeweiligen Besitzers geprüft. Geänderte Custom Lists müssen gegebenenfalls vollständig neu gelesen werden; eine Änderungsschnittstelle für einzelne Einträge wird nicht vorgetäuscht. Es gibt keine ständige Hintergrundabfrage der Simkl-API. [Details](docs/refresh.md)
+The app initially opens in German. If settings are shown, choose **Zurück**, then **English** at the bottom of the main menu. Reopen **Settings** to follow the English labels below.
 
-Einstellungen, Listencache und Protokoll liegen unter `%LOCALAPPDATA%\SimklBridge`. Die Anmeldung wird mit dem Windows-Benutzerschutz DPAPI gespeichert und an die Client-ID gebunden. Tokens gehören niemals in ein Repository. Aktualisierungen und die normale Deinstallation lassen diese Daten bestehen.
+1. Open Simkl Bridge. Under **Sign-in**, enter the Client ID of your AUTH V2 app.
+2. Choose **Connect to Simkl** and approve the displayed code in your browser.
+3. Under **Lists**, load your lists or paste a Simkl list link. Assign the list to Sonarr or Radarr.
+4. Select the configured list, choose **Copy address**, then **Save and back**. Start the bridge if it is stopped.
+5. In Sonarr or Radarr, add a **Custom List** import using the copied address, then test and save it.
 
-## Selbst bauen
+Repeat the list steps for each destination. For registration, exact menu paths and explanations, see the [step-by-step setup guide](docs/setup-simkl.en.md).
 
-Windows x64, Go **1.26.1** und Inno Setup **7.1.1** bereitstellen. Anschließend in PowerShell:
+## Everyday use
+
+Right-click the S icon next to the Windows clock. **Stop bridge** stops the background service but keeps the tray icon available. **Quit** closes the app and its service. Enable **Start with Windows** for automatic startup.
+
+The status text and hover tooltip explain the current state: green means running, amber means starting or restarting, and red means stopped or an error. **About** opens the project page, license and third-party notices.
+
+<p>
+  <img src="docs/images/tray-menu.en.png" width="368" alt="Simkl Bridge tray menu with status, controls, settings and language selection">
+</p>
+
+*Menu preview; the connection status shown is an example.*
+
+## Refreshing lists and protecting your data
+
+The bridge checks for changes when a list is requested and reuses unchanged contents. Sonarr and Radarr always receive complete lists. API failures are reported instead of being returned as empty lists. [How refreshing works](docs/refresh.md)
+
+Only configured lists are served on `127.0.0.1`. Settings, cached lists and logs stay in `%LOCALAPPDATA%\SimklBridge`. Sign-in tokens are protected with Windows DPAPI. Updates and standard uninstall preserve these data files.
+
+## Troubleshooting
+
+See the [troubleshooting table](docs/setup-simkl.en.md#troubleshooting) for sign-in errors, empty lists, PRO status and port conflicts. Choose **Open log** in the tray menu for details. If reporting a problem, remove tokens and other private information first.
+
+## Building from source
+
+On Windows, install Go **1.26.1** and Inno Setup **7.1.1**, then run from the repository folder:
 
 ```powershell
-./scripts/build.ps1 -ISCCExe 'Pfad-zum-Compiler/ISCC.exe'
+./scripts/build.ps1 -ISCCExe 'C:/Path/to/ISCC.exe' -ProjectURL 'https://github.com/Veyilla/simkl-bridge-windows'
 ```
 
-Die Ausgabe liegt im benachbarten Ordner `Simkl-Bridge-Windows`: Programm, Installer, Windows-Archiv und bereinigtes Quellcodearchiv. Optional kann `-ProjectURL` mit der echten GitHub-Repository-Adresse gesetzt werden; dieselbe Adresse erscheint dann im Über-Dialog. Es wird keine fremde Repository-Adresse vorgegeben.
+The script runs the checks and creates the app, installer, Windows archive and source archive in the adjacent `Simkl-Bridge-Windows` folder. The [GitHub workflow](.github/workflows/build.yml) can also be run manually by someone with repository access; it creates artifacts without publishing a release. Race checking additionally requires a Windows C toolchain.
 
-Der GitHub-Workflow lässt sich manuell starten und legt geprüfte Bauartefakte ab. Er veröffentlicht kein Release automatisch. Eine zusätzliche Race-Prüfung erfordert unter Windows eine geeignete C-Werkzeugkette; die funktionalen Gleichzeitigkeitstests laufen ohne sie.
+## License and credits
 
-## Quellen und Lizenz
+Copyright (c) 2026 **Veyilla Nightwhisper**. Licensed under the [MIT License](LICENSE).
 
-Copyright (c) 2026 **Veyilla Nightwhisper**. MIT-Lizenz. Unter **Über** lassen sich die eigene Lizenz, Quellenhinweise und weitere Lizenztexte außerhalb der App öffnen.
-
-Unabhängiges Projekt, kein offizielles Simkl-Produkt. [Simkl](https://simkl.com/) · [Offizielle API-Dokumentation](https://api.simkl.org/)
-
-MIT-Lizenz; siehe [LICENSE](LICENSE). Angepasste Prozessüberwachung auf Grundlage von [Resurrector 1.2.0](https://github.com/Maki-Daisuke/resurrector/tree/v1.2.0). Symbol aus Dashboard Icons, Windows-Bibliothek aus dem Go-Projekt. Vollständige Hinweise und Lizenztexte liegen in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) und `licenses`.
-
+This is an independent app, not an official Simkl product. It uses adapted Resurrector components, the Dashboard Icons Simkl image and the Go Windows library. Their original notices and license texts are included in [Third-party notices](THIRD_PARTY_NOTICES.md) and the [licenses folder](licenses).

@@ -42,12 +42,16 @@ Source: "{#PackageDir}\README.md"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#PackageDir}\README.en.md"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#PackageDir}\LICENSE"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#PackageDir}\THIRD_PARTY_NOTICES.md"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#PackageDir}\THIRD_PARTY_NOTICES.de.md"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#PackageDir}\docs\*"; DestDir: "{app}\docs"; Flags: ignoreversion recursesubdirs
 Source: "{#PackageDir}\licenses\*"; DestDir: "{app}\licenses"; Flags: ignoreversion recursesubdirs
 [Icons]
 Name: "{autoprograms}\Simkl Bridge"; Filename: "{app}\simkl-bridge.exe"; IconFilename: "{app}\simkl.ico"
+[CustomMessages]
+german.LaunchBridge=Simkl Bridge starten
+english.LaunchBridge=Start Simkl Bridge
 [Run]
-Filename: "{app}\simkl-bridge.exe"; Description: "Simkl Bridge starten / Start Simkl Bridge"; Flags: nowait postinstall skipifsilent unchecked
+Filename: "{app}\simkl-bridge.exe"; Description: "{cm:LaunchBridge}"; Flags: nowait postinstall skipifsilent unchecked
 [Code]
 procedure InitializeWizard;
 begin

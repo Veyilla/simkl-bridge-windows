@@ -9,11 +9,17 @@ import (
 )
 
 type testProcess struct {
-	exit chan error
-	once sync.Once
+	exit    chan error
+	once    sync.Once
+	waiting chan struct{}
 }
 
-func (p *testProcess) Wait() error { return <-p.exit }
+func (p *testProcess) Wait() error {
+	if p.waiting != nil {
+		close(p.waiting)
+	}
+	return <-p.exit
+}
 func (p *testProcess) Stop() error { p.once.Do(func() { p.exit <- nil }); return nil }
 func (p *testProcess) crash()      { p.once.Do(func() { p.exit <- errors.New("Absturz") }) }
 
@@ -52,7 +58,7 @@ func fixture(t *testing.T) (*Controller, *testClock, chan *testProcess) {
 	clock := newClock()
 	launched := make(chan *testProcess, 16)
 	c := New(func(context.Context) (Process, error) {
-		p := &testProcess{exit: make(chan error, 1)}
+		p := &testProcess{exit: make(chan error, 1), waiting: make(chan struct{})}
 		launched <- p
 		return p, nil
 	}, clock)
@@ -156,6 +162,7 @@ func TestStableMinuteResetsRetryCount(t *testing.T) {
 	receive(t, clock.waits)
 	clock.advance(2 * time.Second)
 	p := receive(t, launched)
+	receive(t, p.waiting)
 	clock.mu.Lock()
 	clock.now = clock.now.Add(60 * time.Second)
 	clock.mu.Unlock()

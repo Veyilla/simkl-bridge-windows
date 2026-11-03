@@ -1,4 +1,4 @@
-name: Windows-Paket prüfen und erstellen
+name: Check and build Windows package
 on:
   workflow_dispatch:
   push:
@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: '1.26.1'
-      - name: Installer-Compiler bereitstellen
+      - name: Prepare installer compiler
         shell: pwsh
         run: |
           $setup = Join-Path $env:RUNNER_TEMP 'innosetup.exe'
@@ -24,7 +24,7 @@ jobs:
           $process = Start-Process $setup -ArgumentList @('/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/CURRENTUSER','/NOICONS','/TASKS=',"/DIR=`"$compiler`"") -Wait -PassThru
           if ($process.ExitCode -ne 0) { throw 'Compiler-Einrichtung fehlgeschlagen.' }
           "ISCC_EXE=$compiler\ISCC.exe" >> $env:GITHUB_ENV
-      - name: Prüfen und bauen
+      - name: Check and build
         shell: pwsh
         run: ./scripts/build.ps1 -ISCCExe $env:ISCC_EXE -OutputRoot "${{ runner.temp }}\Simkl-Bridge-Paket" -ProjectURL "https://github.com/${{ github.repository }}"
       - uses: actions/upload-artifact@v4

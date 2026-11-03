@@ -20,7 +20,7 @@ try{
     if($LASTEXITCODE-ne 0){throw 'Programm konnte nicht erstellt werden.'}
     & $GoExe run ./cmd/icon (Join-Path $source 'packaging\windows\simkl.ico') (Join-Path $package 'simkl-bridge.exe')
     if($LASTEXITCODE-ne 0){throw 'Programmsymbol konnte nicht eingebettet werden.'}
-    foreach($name in @('README.md','README.de.md','README.en.md','LICENSE','THIRD_PARTY_NOTICES.md','docs','licenses')){Copy-Item -LiteralPath (Join-Path $source $name) -Destination $package -Recurse -Force}
+    foreach($name in @('README.md','README.de.md','README.en.md','LICENSE','THIRD_PARTY_NOTICES.md','THIRD_PARTY_NOTICES.de.md','docs','licenses')){Copy-Item -LiteralPath (Join-Path $source $name) -Destination $package -Recurse -Force}
     Copy-Item -LiteralPath (Join-Path $source 'packaging\windows\simkl.ico') -Destination (Join-Path $package 'simkl.ico') -Force
     function Make-Archive([string]$Root,[string]$Destination,[bool]$SourcePackage){
         Add-Type -AssemblyName System.IO.Compression
