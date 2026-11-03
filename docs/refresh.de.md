@@ -1,6 +1,6 @@
 # So funktioniert die Aktualisierung
 
-[English](refresh.md) · **Deutsch**
+<a href="refresh.md"><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1ec-1f1e7.png" width="20" height="20" alt=""> English</a> · <strong><a href="refresh.de.md"><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1e9-1f1ea.png" width="20" height="20" alt=""> Deutsch</a></strong>
 
 [README](../README.de.md) · [Einrichtungsanleitung](setup-simkl.de.md)
 

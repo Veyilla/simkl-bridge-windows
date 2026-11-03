@@ -1,6 +1,6 @@
 # Simkl Bridge einrichten
 
-[English](setup-simkl.en.md) · **Deutsch**
+<a href="setup-simkl.en.md"><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1ec-1f1e7.png" width="20" height="20" alt=""> English</a> · <strong><a href="setup-simkl.de.md"><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1e9-1f1ea.png" width="20" height="20" alt=""> Deutsch</a></strong>
 
 [README](../README.de.md) · [Installation](installation.de.md) · [Fehlerbehebung](#fehlerbehebung)
 
