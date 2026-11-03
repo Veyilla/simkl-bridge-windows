@@ -141,6 +141,12 @@ Prüfe den Auszug vor dem Veröffentlichen und entferne Tokens, persönliche Lis
 
 ## Selbst bauen
 
+### Programmtests
+
+Das Repository enthält Programmtests direkt neben dem Code in `internal/` und `cmd/` (`*_test.go`). Sie prüfen Anmeldung, Listenabruf und Zwischenspeicherung, Sonarr-/Radarr-Ausgabe, Prozessneustarts und die Windows-Menübedienung. Integrationstests prüfen API-Client, Zwischenspeicher und Importadressen gemeinsam mit lokalen Testservern und künstlichen Daten; ein persönliches Simkl-Konto wird nicht verwendet. GitHub führt die Prüfungen bei Pushes und Pull Requests automatisch aus. Lokal startest du sie unter Windows mit Go 1.26.1 durch `go test ./... -count=1 -timeout=3m` im Repository-Ordner. Die automatischen Prüfungen ersetzen keine Sichtprüfung auf unterschiedlichen Monitoren.
+
+### App erstellen
+
 Installiere unter Windows Go **1.26.1** und Inno Setup **7.1.1**. Führe anschließend im Repository-Ordner aus:
 
 ```powershell

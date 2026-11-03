@@ -1,0 +1,25 @@
+name: Program tests
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows-tests:
+    runs-on: windows-2025
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.26.1'
+      - name: Test program components and integration
+        run: go test ./... -count=1 -timeout=3m
+      - name: Check Go code
+        run: go vet ./...
+      - name: Check package contents
+        shell: pwsh
+        run: |
+          ./scripts/check-release.tests.ps1
+          ./scripts/check-release.ps1 -SourceRoot .

@@ -141,6 +141,12 @@ Check the excerpt before posting and remove tokens, personal list addresses and 
 
 ## Building from source
 
+### Program tests
+
+The repository includes program tests alongside the code in `internal/` and `cmd/` (`*_test.go`). They cover sign-in, list retrieval and caching, Sonarr/Radarr output, process restarts and Windows menu behavior. Integration tests exercise the API client, cache and import endpoints together using local test servers and synthetic data; no personal Simkl account is used. GitHub runs the checks automatically on pushes and pull requests. To run them locally on Windows with Go 1.26.1, use `go test ./... -count=1 -timeout=3m` from the repository folder. Automated checks do not replace visual testing on different monitors.
+
+### Build the app
+
 On Windows, install Go **1.26.1** and Inno Setup **7.1.1**, then run from the repository folder:
 
 ```powershell
