@@ -1,4 +1,4 @@
-param([string]$GoExe='go',[string]$ISCCExe='ISCC',[string]$OutputRoot,[string]$Version='0.1.0-preview.4',[string]$ProjectURL='')
+param([string]$GoExe='go',[string]$ISCCExe='ISCC',[string]$OutputRoot,[string]$Version='0.1.0-preview.5',[string]$ProjectURL='')
 $ErrorActionPreference='Stop'
 $source=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 if(-not $OutputRoot){$OutputRoot=Join-Path $source '..\Simkl-Bridge-Windows'}

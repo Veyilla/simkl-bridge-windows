@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="docs/installation.de.md"><img src="https://img.shields.io/badge/Windows-x64-0078D4?style=flat-square" alt="Windows x64"></a>
-  <a href="https://github.com/Veyilla/simkl-bridge-windows/commits/main/"><img src="https://img.shields.io/badge/Version-0.1.0--preview.4-D9A441?style=flat-square" alt="Version 0.1.0-preview.4"></a>
+  <a href="https://github.com/Veyilla/simkl-bridge-windows/commits/main/"><img src="https://img.shields.io/badge/Version-0.1.0--preview.5-D9A441?style=flat-square" alt="Version 0.1.0-preview.5"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-3DA66D?style=flat-square" alt="Lizenz: MIT"></a>
   <img src="https://img.shields.io/badge/KI--unterst%C3%BCtzt-GPT--6.1_Sol-000000?style=flat-square&amp;labelColor=333333" alt="KI-unterstützt: GPT-6.1 Sol">
 </p>
@@ -40,7 +40,7 @@ Simkl Bridge richtet sich an alle, die ihre eigenen Simkl-Listen mit möglichst 
 - Serien gehen an Sonarr, Filme an Radarr. Bei Anime-Listen erhält Sonarr die Einträge, die keine Filme sind, und Radarr die Anime-Filme. Ordne dieselbe Anime-Liste beiden Zielen zu, wenn du beides übernehmen möchtest. Die benötigten TVDB-/TMDb-Zuordnungen müssen verfügbar sein; fehlende Zuordnungen führen zu einer Fehlermeldung. Doppelte Zielkennungen erscheinen pro Listenantwort nur einmal.
 - Die Bridge liest Custom Lists. Erstelle oder bearbeite deren Inhalte auf Simkl. Eingebaute Kategorien wie Watching oder Plan to Watch werden über diese App nicht importiert. Überwachung, Suche und Downloads übernimmt Sonarr/Radarr.
 
-**Aktuelle Version:** 0.1.0-preview.4. Dies ist eine Vorabversion; die Windows-Pakete sind nicht digital signiert. Die [Installationshinweise](docs/installation.de.md#hinweise-zur-vorabversion) erläutern die aktuellen Einschränkungen.
+**Aktuelle Version:** 0.1.0-preview.5. Dies ist eine Vorabversion; die Windows-Pakete sind nicht digital signiert. Die [Installationshinweise](docs/installation.de.md#hinweise-zur-vorabversion) erläutern die aktuellen Einschränkungen.
 
 ## Voraussetzungen
 

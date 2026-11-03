@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="docs/installation.en.md"><img src="https://img.shields.io/badge/Windows-x64-0078D4?style=flat-square" alt="Windows x64"></a>
-  <a href="https://github.com/Veyilla/simkl-bridge-windows/commits/main/"><img src="https://img.shields.io/badge/Version-0.1.0--preview.4-D9A441?style=flat-square" alt="Version 0.1.0-preview.4"></a>
+  <a href="https://github.com/Veyilla/simkl-bridge-windows/commits/main/"><img src="https://img.shields.io/badge/Version-0.1.0--preview.5-D9A441?style=flat-square" alt="Version 0.1.0-preview.5"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-3DA66D?style=flat-square" alt="License: MIT"></a>
   <img src="https://img.shields.io/badge/AI--assisted-GPT--6.1_Sol-000000?style=flat-square&amp;labelColor=333333" alt="AI-assisted: GPT-6.1 Sol">
 </p>
@@ -40,7 +40,7 @@ Simkl Bridge is for anyone who wants to use their own Simkl lists in Sonarr and 
 - Series go to Sonarr; movies go to Radarr. For an anime list, Sonarr receives non-movie entries and Radarr receives anime movies. Add the same anime list for both destinations if you want both kinds. Required TVDB/TMDb mappings must be available; missing mappings produce an error. Duplicate destination IDs are included only once per list response.
 - The bridge reads Custom Lists. Create or edit their contents on Simkl. Built-in categories such as Watching or Plan to Watch are not imported through this app. Sonarr/Radarr handle monitoring, searches and downloads.
 
-**Current version:** 0.1.0-preview.4. This is a preview release, and the Windows packages are unsigned. See [installation notes](docs/installation.en.md#preview-details) for the current limitations.
+**Current version:** 0.1.0-preview.5. This is a preview release, and the Windows packages are unsigned. See [installation notes](docs/installation.en.md#preview-details) for the current limitations.
 
 ## Requirements
 

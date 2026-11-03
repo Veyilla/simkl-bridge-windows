@@ -1,5 +1,5 @@
 #ifndef AppVersion
-  #define AppVersion "0.1.0-preview.4"
+  #define AppVersion "0.1.0-preview.5"
 #endif
 #ifndef PackageDir
   #error PackageDir muss auf den geprüften Windows-Paketordner zeigen.
