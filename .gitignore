@@ -1,0 +1,9 @@
+/build/
+/dist/
+*.log
+*.secret
+*.tmp
+/private/
+/runtime/
+*.exe
+*.zip

@@ -1,0 +1,33 @@
+name: Windows-Paket prüfen und erstellen
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.26.1'
+      - name: Installer-Compiler bereitstellen
+        shell: pwsh
+        run: |
+          $setup = Join-Path $env:RUNNER_TEMP 'innosetup.exe'
+          $compiler = Join-Path $env:RUNNER_TEMP 'inno'
+          Invoke-WebRequest 'https://github.com/jrsoftware/issrc/releases/download/is-7_1_1/innosetup-7.1.1-x64.exe' -OutFile $setup
+          $signature = Get-AuthenticodeSignature $setup
+          if ($signature.Status -ne 'Valid' -or $signature.SignerCertificate.Subject -notmatch 'Pyrsys B.V.') { throw 'Compiler-Signatur ungültig.' }
+          $process = Start-Process $setup -ArgumentList @('/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/CURRENTUSER','/NOICONS','/TASKS=',"/DIR=`"$compiler`"") -Wait -PassThru
+          if ($process.ExitCode -ne 0) { throw 'Compiler-Einrichtung fehlgeschlagen.' }
+          "ISCC_EXE=$compiler\ISCC.exe" >> $env:GITHUB_ENV
+      - name: Prüfen und bauen
+        shell: pwsh
+        run: ./scripts/build.ps1 -ISCCExe $env:ISCC_EXE -OutputRoot "${{ runner.temp }}\Simkl-Bridge-Paket" -ProjectURL "https://github.com/${{ github.repository }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Simkl-Bridge-Windows
+          path: ${{ runner.temp }}\Simkl-Bridge-Paket\*
