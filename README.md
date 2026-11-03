@@ -28,9 +28,16 @@
 Simkl Bridge is for anyone who wants to use their own Simkl lists in Sonarr and Radarr with as little setup as possible. A compact tray menu brings account connection, list selection and everyday controls together. The [setup guide](docs/setup-simkl.en.md) walks you through your first list; experienced users can start with the quick setup below.
 
 - After setup, automatically retrieves your configured Simkl Custom Lists when Sonarr or Radarr requests them on its import schedule, checks for changes and passes complete lists to the destination app. Keep the bridge running; no manual export or copying is needed for subsequent updates.
-- Provides start, stop, restart, Windows startup, settings and logs from one tray menu.
+- Provides everyday controls, Windows startup, settings and logs from one tray menu.
+- Monitors its own bridge service and restarts it automatically after a crash, with a limited number of retries.
 - Keeps sign-in and list settings between sessions. No console window needs to stay open.
 - Supports an AMOLED-black interface with German and English labels.
+
+### Lists and supported media
+
+- Add several lists by selecting them from your account or pasting an accessible Simkl list link or list ID. The bridge extracts the ID from a supported link. Other users' accessible lists can also be added by link; Simkl's access restrictions still apply.
+- Series go to Sonarr; movies go to Radarr. For an anime list, Sonarr receives non-movie entries and Radarr receives anime movies. Add the same anime list for both destinations if you want both kinds. Required TVDB/TMDb mappings must be available; missing mappings produce an error. Duplicate destination IDs are included only once per list response.
+- The bridge reads Custom Lists. Create or edit their contents on Simkl. Built-in categories such as Watching or Plan to Watch are not imported through this app. Sonarr/Radarr handle monitoring, searches and downloads.
 
 **Current version:** 0.1.0-preview.4. This is a preview release, and the Windows packages are unsigned. See [installation notes](docs/installation.en.md#preview-details) for the current limitations.
 
@@ -48,7 +55,11 @@ Reading **Custom List contents**, which this bridge imports, separately requires
 
 ## Installation
 
-No downloadable release has been published in this repository yet. If you already have a preview installer, follow the [installation guide](docs/installation.en.md). Otherwise, use the [build instructions](#building-from-source). Future downloads will be listed under [Releases](https://github.com/Veyilla/simkl-bridge-windows/releases).
+A Windows installer is prepared as an **EXE file** and is planned for availability under [Releases](https://github.com/Veyilla/simkl-bridge-windows/releases) soon. No downloadable release has been published here yet, and no release date is set. The filename follows the pattern `Simkl-Bridge-<Version>-Windows-x64-Setup.exe`.
+
+Setup guides you through the license agreement and installation in English or German, copies the app, guides and license texts into your per-user program folder, and adds a Start menu entry. You can optionally launch the app when setup finishes. On first launch, connect your Simkl account and select your lists; enable Windows startup later in the app menu if you want it. You do not need to install Docker, Python or Node.
+
+If you already have a preview installer, follow the [installation guide](docs/installation.en.md). Until the download release is available, you can also [build from source](#building-from-source).
 
 ## Quick setup
 
@@ -84,12 +95,9 @@ Repeat setup for each list and destination app. List requests then run automatic
 
 ## Everyday use
 
-### Lists and supported media
+### Manage lists
 
-- Add several lists by selecting them from your account or pasting an accessible Simkl list link or list ID. The bridge extracts the ID from a supported link. Other users' accessible lists can also be added by link; Simkl's access restrictions still apply.
-- Series go to Sonarr; movies go to Radarr. For an anime list, Sonarr receives non-movie entries and Radarr receives anime movies. Add the same anime list for both destinations if you want both kinds. Required TVDB/TMDb mappings must be available; missing mappings produce an error. Duplicate destination IDs are included only once per list response.
-- Under **Settings → Lists**, select a configured entry and choose **Remove mapping**, then **Save and back** to stop serving that address. This removes the bridge assignment. It does not delete the Simkl list or titles in Sonarr/Radarr; manage the destination import list there as well.
-- The bridge reads Custom Lists. Create or edit their contents on Simkl. Built-in categories such as Watching or Plan to Watch are not imported through this app. Sonarr/Radarr handle monitoring, searches and downloads.
+Under **Settings → Lists**, select a configured entry and choose **Remove mapping**, then **Save and back** to stop serving that address. This removes the bridge assignment. It does not delete the Simkl list or titles in Sonarr/Radarr; manage the destination import list there as well.
 
 ### Tray controls
 
