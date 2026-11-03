@@ -6,7 +6,7 @@
 
 ## Install a preview
 
-This repository does not have a downloadable release yet. These steps apply if you already have a preview installer. Otherwise, see [Building from source](../README.md#building-from-source). When releases are available, download them from this repository's [Releases page](https://github.com/Veyilla/simkl-bridge-windows/releases).
+Download `Simkl-Bridge-0.1.0-preview.5-Windows-x64-Setup.exe` from [v0.1.0-preview.5](https://github.com/Veyilla/simkl-bridge-windows/releases/tag/v0.1.0-preview.5). The release also includes a Windows app ZIP, the source package and `SHA256SUMS.txt`. Use the EXE for guided installation. You can also [build from source](../README.md#building-from-source).
 
 1. Close a running copy of Simkl Bridge using **Quit** in its tray menu.
 2. Start the file named `Simkl-Bridge-…-Windows-x64-Setup.exe`.

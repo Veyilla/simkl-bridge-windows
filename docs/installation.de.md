@@ -6,7 +6,7 @@
 
 ## Vorabversion installieren
 
-In diesem Repository gibt es noch kein Release zum Herunterladen. Diese Schritte gelten, wenn du bereits einen Vorabversions-Installer hast. Andernfalls kannst du die App [selbst bauen](../README.de.md#selbst-bauen). Sobald Releases verfügbar sind, findest du sie auf der [Releases-Seite](https://github.com/Veyilla/simkl-bridge-windows/releases) dieses Repositorys.
+Lade `Simkl-Bridge-0.1.0-preview.5-Windows-x64-Setup.exe` unter [v0.1.0-preview.5](https://github.com/Veyilla/simkl-bridge-windows/releases/tag/v0.1.0-preview.5) herunter. Das Release enthält außerdem ein Windows-Programm-ZIP, den Quellcode und `SHA256SUMS.txt`. Verwende die EXE für die geführte Installation. Alternativ kannst du die App [selbst bauen](../README.de.md#selbst-bauen).
 
 1. Schließe eine laufende Simkl Bridge über **Beenden** im Menü neben der Uhr.
 2. Starte die Datei `Simkl-Bridge-…-Windows-x64-Setup.exe`.

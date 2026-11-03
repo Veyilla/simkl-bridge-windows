@@ -56,11 +56,11 @@ Reading **Custom List contents**, which this bridge imports, separately requires
 
 ## Installation
 
-A Windows installer is prepared as an **EXE file** and is planned for availability under [Releases](https://github.com/Veyilla/simkl-bridge-windows/releases) soon. No downloadable release has been published here yet, and no release date is set. The filename follows the pattern `Simkl-Bridge-<Version>-Windows-x64-Setup.exe`.
+Download the **Windows EXE installer** from [v0.1.0-preview.5](https://github.com/Veyilla/simkl-bridge-windows/releases/tag/v0.1.0-preview.5). Choose `Simkl-Bridge-0.1.0-preview.5-Windows-x64-Setup.exe` for the guided installation. The same release includes a Windows app ZIP, the source package and SHA-256 checksums.
 
 Setup guides you through the license agreement and installation in English or German, copies the app, guides and license texts into your per-user program folder, and adds a Start menu entry. You can optionally launch the app when setup finishes. On first launch, connect your Simkl account and select your lists; enable Windows startup later in the app menu if you want it. You do not need to install Docker, Python or Node.
 
-If you already have a preview installer, follow the [installation guide](docs/installation.en.md). Until the download release is available, you can also [build from source](#building-from-source).
+Follow the [installation guide](docs/installation.en.md) for installation and updates. You can also [build from source](#building-from-source).
 
 ## Quick setup
 

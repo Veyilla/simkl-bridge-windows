@@ -56,11 +56,11 @@ Das Lesen der **Custom-List-Inhalte**, die diese Bridge importiert, verlangt zus
 
 ## Installation
 
-Ein Windows-Installer als **EXE-Datei** ist vorbereitet und soll demnächst unter [Releases](https://github.com/Veyilla/simkl-bridge-windows/releases) bereitgestellt werden. Ein Download-Release ist hier derzeit noch nicht veröffentlicht; ein Termin steht noch nicht fest. Der Dateiname folgt dem Muster `Simkl-Bridge-<Version>-Windows-x64-Setup.exe`.
+Lade den **Windows-Installer als EXE-Datei** unter [v0.1.0-preview.5](https://github.com/Veyilla/simkl-bridge-windows/releases/tag/v0.1.0-preview.5) herunter. Wähle `Simkl-Bridge-0.1.0-preview.5-Windows-x64-Setup.exe` für die geführte Installation. Dasselbe Release enthält ein Windows-Programm-ZIP, den Quellcode und SHA-256-Prüfsummen.
 
 Das Setup führt auf Deutsch oder Englisch durch die Lizenzvereinbarung und Installation, kopiert die App samt Anleitungen und Lizenztexten in deinen Benutzer-Programmordner und legt einen Startmenü-Eintrag an. Am Ende kannst du die App optional starten. Beim ersten Start verbindest du dein Simkl-Konto und wählst deine Listen; den Windows-Autostart aktivierst du anschließend bei Bedarf im App-Menü. Docker, Python und Node musst du nicht installieren.
 
-Wenn du bereits einen Vorabversions-Installer hast, folge der [Installationsanleitung](docs/installation.de.md). Bis zum Download-Release kannst du die App alternativ [selbst bauen](#selbst-bauen).
+Die [Installationsanleitung](docs/installation.de.md) erklärt Installation und Aktualisierung. Alternativ kannst du die App [selbst bauen](#selbst-bauen).
 
 ## Schnelle Einrichtung
 
