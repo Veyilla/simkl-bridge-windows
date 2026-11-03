@@ -2,9 +2,7 @@
   <img src="docs/images/simkl.png" width="88" height="88" alt="Simkl-Bridge-Symbol: weißes S auf Schwarz">
 </p>
 
-<h1 align="center">Simkl Bridge für Windows</h1>
-
-<p align="center"><strong>Deine Listen. Direkt verbunden.</strong></p>
+<h1 align="center">Simkl Bridge für Windows<br><sub>Deine Listen. Direkt verbunden.</sub></h1>
 
 <p align="center">
   Importiere Simkl-Custom-Lists mit einer kompakten Windows-App in Sonarr und Radarr.<br>
@@ -56,9 +54,29 @@ Die App startet zunächst auf Deutsch. Du kannst die Sprache unten im Hauptmenü
 2. Wähle **Mit Simkl verbinden** und bestätige den angezeigten Code im Browser.
 3. Lade unter **Listen** deine Listen oder füge einen Simkl-Listenlink ein. Ordne die Liste Sonarr oder Radarr zu.
 4. Markiere die eingerichtete Liste, wähle **Adresse kopieren** und anschließend **Speichern und zurück**. Starte die Bridge, falls sie gestoppt ist.
-5. Füge in Sonarr oder Radarr eine **Benutzerdefinierte Liste** mit der kopierten Adresse hinzu. Prüfe und speichere sie.
+5. Richte die kopierte Adresse wie unter [Sonarr und Radarr verbinden](#sonarr-und-radarr-verbinden) beschrieben als Importliste ein.
 
 Wiederhole die Listenschritte für jedes Ziel. Registrierung, genaue Menüpfade und Erklärungen stehen in der [Schritt-für-Schritt-Anleitung](docs/setup-simkl.de.md).
+
+## Sonarr und Radarr verbinden
+
+Die Anmeldung bei Simkl allein reicht nicht: Lege für jede gewünschte Liste auch eine Importliste im Zielprogramm an. Sonarr und Radarr müssen auf demselben Windows-Rechner wie die Bridge laufen.
+
+| Zielprogramm | Liste in der Bridge zuordnen | Menüpfad im Zielprogramm |
+|---|---|---|
+| Sonarr für Serien | **Listen → Auswahl → Sonarr** | **Einstellungen → Importlisten → + → Benutzerdefinierte Liste** |
+| Radarr für Filme | **Listen → Auswahl → Radarr** | **Einstellungen → Importlisten → + → Benutzerdefinierte Liste** |
+
+Bei englischer Oberfläche lautet der Menüpfad in beiden Programmen **Settings → Import Lists → + → Custom List**.
+
+1. Markiere in der Bridge unter **Listen** den eingerichteten Eintrag und wähle **Adresse kopieren**. Verwende die Bridge-Adresse, nicht den Link zur Simkl-Webseite.
+2. Wähle **Speichern und zurück** und stelle sicher, dass **Bridge läuft** angezeigt wird. Während du die Bridge-Einstellungen bearbeitest, pausiert der Dienst.
+3. Öffne im Zielprogramm den oben genannten Menüpfad. Gib der Importliste einen erkennbaren Namen und füge die kopierte Adresse in das URL-Feld ein.
+4. Aktiviere das automatische Hinzufügen, wenn neue Titel automatisch in die Bibliothek übernommen werden sollen. Wähle einen gültigen **Root-Ordner** für Serien beziehungsweise Filme und ein **Qualitätsprofil**. Lege außerdem fest, ob neue Titel überwacht und fehlende Episoden beziehungsweise Filme sofort gesucht werden sollen.
+5. Prüfe die Aufräumoptionen der Mediathek: Sie bestimmen, was mit Titeln geschieht, die später aus Listen verschwinden.
+6. Wähle **Prüfen**, dann **Speichern**. Starte im Zielprogramm die Listenaktualisierung oder warte auf den nächsten geplanten Abruf.
+
+Wiederhole die Einrichtung für jede Liste und jedes Zielprogramm. Danach laufen die Listenabrufe automatisch, solange die Bridge läuft. Nach einer Änderung des Bridge-Ports musst du die neuen Adressen erneut in Sonarr/Radarr eintragen. Bei Problemen hilft die [Fehlerbehebung](#fehlerbehebung).
 
 ## Im Alltag
 

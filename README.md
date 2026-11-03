@@ -2,9 +2,7 @@
   <img src="docs/images/simkl.png" width="88" height="88" alt="Simkl Bridge icon: a white S on black">
 </p>
 
-<h1 align="center">Simkl Bridge for Windows</h1>
-
-<p align="center"><strong>Your lists. Directly connected.</strong></p>
+<h1 align="center">Simkl Bridge for Windows<br><sub>Your lists. Directly connected.</sub></h1>
 
 <p align="center">
   Import Simkl Custom Lists into Sonarr and Radarr with a compact Windows tray app.<br>
@@ -56,9 +54,29 @@ The app initially opens in German. If settings are shown, choose **Zurück**, th
 2. Choose **Connect to Simkl** and approve the displayed code in your browser.
 3. Under **Lists**, load your lists or paste a Simkl list link. Assign the list to Sonarr or Radarr.
 4. Select the configured list, choose **Copy address**, then **Save and back**. Start the bridge if it is stopped.
-5. In Sonarr or Radarr, add a **Custom List** import using the copied address, then test and save it.
+5. Add the copied address as an import list, following [Connect Sonarr and Radarr](#connect-sonarr-and-radarr).
 
 Repeat the list steps for each destination. For registration, exact menu paths and explanations, see the [step-by-step setup guide](docs/setup-simkl.en.md).
+
+## Connect Sonarr and Radarr
+
+Signing in to Simkl is only part of setup: create an import list in the destination app for each list you want to use. Sonarr and Radarr must run on the same Windows computer as the bridge.
+
+| Destination | Assign the list in the bridge | Menu path in the destination app |
+|---|---|---|
+| Sonarr for series | **Lists → Selection → Sonarr** | **Settings → Import Lists → + → Custom List** |
+| Radarr for movies | **Lists → Selection → Radarr** | **Settings → Import Lists → + → Custom List** |
+
+With a German interface, the path in both apps is **Einstellungen → Importlisten → + → Benutzerdefinierte Liste**.
+
+1. Under **Lists** in the bridge, select the configured entry and choose **Copy address**. Use the bridge address, rather than the Simkl website link.
+2. Choose **Save and back** and make sure the status says **Bridge running**. The service pauses while you edit the bridge settings.
+3. Open the destination app's menu path shown above. Give the import list a recognizable name and paste the copied address into its URL field.
+4. Enable automatic adding if you want new titles added to the library automatically. Select a valid **Root Folder** for series or movies and a **Quality Profile**. Also choose whether new titles should be monitored and missing episodes or movies searched for immediately.
+5. Review the library-cleaning options: they determine what happens to titles that later disappear from lists.
+6. Choose **Test**, then **Save**. Run the destination app's list refresh action or wait for its next scheduled request.
+
+Repeat setup for each list and destination app. List requests then run automatically while the bridge is running. If you change the bridge port, update the addresses in Sonarr/Radarr. See [Troubleshooting](#troubleshooting) if something fails.
 
 ## Everyday use
 
