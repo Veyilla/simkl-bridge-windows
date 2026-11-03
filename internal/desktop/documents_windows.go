@@ -20,13 +20,16 @@ func OpenLocalDocument(name string) error {
 	if _, err = os.Stat(path); err != nil {
 		return err
 	}
-	program := "notepad.exe"
-	if name == "licenses" {
-		program = "explorer.exe"
-	}
-	cmd := exec.Command(filepath.Join(os.Getenv("WINDIR"), "System32", program), path)
+	cmd := exec.Command(documentProgram(name), path)
 	if err = cmd.Start(); err != nil {
 		return err
 	}
 	return cmd.Process.Release()
+}
+
+func documentProgram(name string) string {
+	if name == "licenses" {
+		return filepath.Join(os.Getenv("WINDIR"), "explorer.exe")
+	}
+	return filepath.Join(os.Getenv("WINDIR"), "System32", "notepad.exe")
 }
