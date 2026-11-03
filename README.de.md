@@ -25,12 +25,14 @@
 
 ## Was die App macht
 
+**Deine Listen. Direkt verbunden.** Simkl Bridge richtet sich an alle, die ihre eigenen Simkl-Listen mit möglichst wenig Einrichtungsaufwand in Sonarr und Radarr nutzen möchten. Das kompakte Menü neben der Windows-Uhr bündelt Anmeldung, Listenauswahl und die tägliche Bedienung. Die [Einrichtungsanleitung](docs/setup-simkl.de.md) führt durch die erste Liste; erfahrene Nutzer können direkt mit der Kurzanleitung unten beginnen.
+
 - Stellt ausgewählte Simkl-Custom-Lists als lokale Importlisten für Sonarr und Radarr bereit.
 - Bietet Start, Stop, Neustart, Windows-Autostart, Einstellungen und Protokoll in einem Menü neben der Uhr.
 - Speichert Anmeldung und Listeneinstellungen. Es muss kein Konsolenfenster geöffnet bleiben.
 - Bietet eine AMOLED-schwarze Oberfläche mit deutscher und englischer Beschriftung.
 
-**Vorabversion:** Die grundlegende Einrichtung funktioniert; noch nicht jede Monitoranordnung und jeder Langzeitfall ist geprüft. Die Pakete sind derzeit nicht digital signiert.
+**Aktuelle Version:** 0.1.0-preview.4. Dies ist eine Vorabversion; die Windows-Pakete sind nicht digital signiert. Die [Installationshinweise](docs/installation.de.md#hinweise-zur-vorabversion) erläutern die aktuellen Einschränkungen.
 
 ## Voraussetzungen
 
@@ -62,6 +64,8 @@ Klicke mit der rechten Maustaste auf das S-Symbol neben der Windows-Uhr. **Bridg
 
 Statustext und Hinweis beim Darüberfahren erklären den Zustand: Grün bedeutet laufend, Gelb Start oder Neustart und Rot gestoppt oder Fehler. Unter **Über** öffnest du die Projektseite, die Lizenz und die Quellenhinweise.
 
+Mit **Neu starten** startest du den Dienst erneut. Nach einem unerwarteten Ende versucht die App höchstens drei automatische Neustarts. Danach stoppt sie und zeigt den Fehler an. Unter **Einstellungen** kannst du dein Konto erneut verbinden, Listen verwalten und den lokalen Port ändern. Speichere und verlasse die Einstellungen, damit der Dienst fortgesetzt wird.
+
 <p>
   <img src="docs/images/tray-menu.png" width="368" alt="Simkl-Bridge-Menü mit Status, Steuerung, Einstellungen und Sprachauswahl">
 </p>
@@ -76,7 +80,16 @@ Nur eingerichtete Listen sind über `127.0.0.1` erreichbar. Einstellungen, Liste
 
 ## Fehlerbehebung
 
-Die [Hilfetabelle](docs/setup-simkl.de.md#fehlerbehebung) erklärt Anmeldefehler, leere Listen, PRO-Status und Portkonflikte. Weitere Angaben findest du unter **Protokoll öffnen**. Entferne Tokens und andere private Angaben, bevor du ein Problem meldest.
+Die [Hilfetabelle](docs/setup-simkl.de.md#fehlerbehebung) erklärt Anmeldefehler, leere Listen, PRO-Status und Portkonflikte. Wähle im Menü **Protokoll öffnen**. Das Protokoll enthält Zeitstempel, erkannte Dienst- und Listenfehler sowie Neustartzustände. Wiederholte unveränderte Listenfehler werden nicht bei jedem Abruf erneut protokolliert; es ist kein vollständiger Mitschnitt aller Aktionen. Die Protokollmeldungen sind derzeit auch bei englischer Oberfläche auf Deutsch.
+
+Bleibt das Problem bestehen, [erstelle ein Issue](https://github.com/Veyilla/simkl-bridge-windows/issues/new) mit diesen Angaben:
+
+- App-Version, Windows-Version und betroffenes Zielprogramm: Sonarr oder Radarr.
+- Schritte zum Nachstellen, erwartetes Ergebnis und tatsächliche Fehlermeldung.
+- Zeitpunkt des Fehlers und passende Zeilen aus `%LOCALAPPDATA%\SimklBridge\bridge.log`.
+- Bei Darstellungsfehlern: Screenshot, Bildschirmauflösung und Windows-Skalierung in Prozent.
+
+Prüfe den Auszug vor dem Veröffentlichen und entferne Tokens, persönliche Listenadressen und andere private Angaben. Gibt es keinen passenden Protokolleintrag, erwähne das im Issue und ergänze die Fehlermeldung aus der App oder aus Sonarr/Radarr.
 
 ## Selbst bauen
 
@@ -86,10 +99,10 @@ Installiere unter Windows Go **1.26.1** und Inno Setup **7.1.1**. Führe anschli
 ./scripts/build.ps1 -ISCCExe 'C:/Pfad/zu/ISCC.exe' -ProjectURL 'https://github.com/Veyilla/simkl-bridge-windows'
 ```
 
-Das Skript führt die Prüfungen aus und erstellt App, Installer, Windows-Archiv und Quellcodearchiv im benachbarten Ordner `Simkl-Bridge-Windows`. Der [GitHub-Workflow](.github/workflows/build.yml) kann von Personen mit Repository-Zugriff auch manuell gestartet werden. Er erstellt Artefakte und veröffentlicht kein Release. Eine zusätzliche Race-Prüfung benötigt unter Windows eine C-Werkzeugkette.
+Das Skript führt die Prüfungen aus und erstellt App, Installer, Windows-Archiv und Quellcodearchiv im benachbarten Ordner `Simkl-Bridge-Windows`. Eine zusätzliche Race-Prüfung benötigt unter Windows eine C-Werkzeugkette.
 
 ## Lizenz und Quellen
 
-Copyright (c) 2026 **Veyilla Nightwhisper**. Veröffentlicht unter der [MIT-Lizenz](LICENSE).
+Copyright © 2026 **Veyilla Nightwhisper**. Veröffentlicht unter der [MIT-Lizenz](LICENSE).
 
-Dies ist eine unabhängige App, kein offizielles Simkl-Produkt. Sie verwendet angepasste Resurrector-Bausteine, das Simkl-Bild aus Dashboard Icons und die Go-Windows-Bibliothek. Die ursprünglichen Hinweise und Lizenztexte stehen in den [Quellenhinweisen](THIRD_PARTY_NOTICES.de.md) und im [Lizenzordner](licenses).
+Dies ist eine unabhängige App, kein offizielles Simkl-Produkt. Sie verwendet angepasste Bausteine aus [Resurrector](https://github.com/Maki-Daisuke/resurrector/tree/v1.2.0) von [Daisuke (yet another) Maki](https://github.com/Maki-Daisuke), das Simkl-Bild aus Dashboard Icons und die Go-Windows-Bibliothek. Die ursprünglichen Hinweise und Lizenztexte stehen in den [Quellenhinweisen](THIRD_PARTY_NOTICES.de.md) und im [Lizenzordner](licenses).

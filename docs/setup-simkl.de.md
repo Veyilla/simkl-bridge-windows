@@ -91,3 +91,5 @@ Bei der dokumentierten Prüfung vom **3. November 2026** nannte Simkl **ungefäh
 | Falsches Ziel oder fehlende Kennungen | Ordne Serien Sonarr und Filme Radarr zu. Prüfe das **Protokoll** auf fehlende TVDB-/TMDb-Kennungen. |
 
 Unter [Installation](installation.de.md) stehen Hinweise zu Updates und Deinstallation. [So funktioniert die Aktualisierung](refresh.de.md) erklärt den Listencache.
+
+Lösen diese Prüfungen das Problem nicht, folge den Hinweisen zum [Melden eines Fehlers](../README.de.md#fehlerbehebung). Ergänze im Issue einen passenden Protokollauszug und die Schritte zum Nachstellen; entferne vorher private Angaben. Das Protokoll verwendet unabhängig von der Oberflächensprache derzeit deutsche Meldungen.

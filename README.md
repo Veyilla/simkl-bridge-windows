@@ -25,12 +25,14 @@
 
 ## What it does
 
+**Your lists. Directly connected.** Simkl Bridge is for anyone who wants to use their own Simkl lists in Sonarr and Radarr with as little setup as possible. A compact tray menu brings account connection, list selection and everyday controls together. The [setup guide](docs/setup-simkl.en.md) walks you through your first list; experienced users can start with the quick setup below.
+
 - Makes selected Simkl Custom Lists available as local import lists for Sonarr and Radarr.
 - Provides start, stop, restart, Windows startup, settings and logs from one tray menu.
 - Keeps sign-in and list settings between sessions. No console window needs to stay open.
 - Supports an AMOLED-black interface with German and English labels.
 
-**Preview:** the core workflow is available, but not every monitor arrangement and long-term scenario has been verified. Builds are currently unsigned.
+**Current version:** 0.1.0-preview.4. This is a preview release, and the Windows packages are unsigned. See [installation notes](docs/installation.en.md#preview-details) for the current limitations.
 
 ## Requirements
 
@@ -62,6 +64,8 @@ Right-click the S icon next to the Windows clock. **Stop bridge** stops the back
 
 The status text and hover tooltip explain the current state: green means running, amber means starting or restarting, and red means stopped or an error. **About** opens the project page, license and third-party notices.
 
+Choose **Restart bridge** to restart the service. After an unexpected exit, the app attempts up to three automatic restarts, then stops and shows the error. **Settings** lets you reconnect your account, manage lists and change the local port. Save and leave settings to resume the service.
+
 <p>
   <img src="docs/images/tray-menu.en.png" width="368" alt="Simkl Bridge tray menu with status, controls, settings and language selection">
 </p>
@@ -76,7 +80,16 @@ Only configured lists are served on `127.0.0.1`. Settings, cached lists and logs
 
 ## Troubleshooting
 
-See the [troubleshooting table](docs/setup-simkl.en.md#troubleshooting) for sign-in errors, empty lists, PRO status and port conflicts. Choose **Open log** in the tray menu for details. If reporting a problem, remove tokens and other private information first.
+See the [troubleshooting table](docs/setup-simkl.en.md#troubleshooting) for sign-in errors, empty lists, PRO status and port conflicts. Choose **Open log** in the tray menu. The log records timestamps, recognized service and list errors, and restart states. Repeated unchanged list-error states are not logged on every request; it is not a complete record of every action. Log messages currently use German even with the English interface.
+
+If the problem persists, [open an issue](https://github.com/Veyilla/simkl-bridge-windows/issues/new) and include:
+
+- The app version, Windows version and whether Sonarr or Radarr is affected.
+- The steps to reproduce the problem, expected result and actual error message.
+- The time of the failure and the relevant lines from `%LOCALAPPDATA%\SimklBridge\bridge.log`.
+- For display problems, a screenshot, screen resolution and Windows scaling percentage.
+
+Check the excerpt before posting and remove tokens, personal list addresses and other private details. If the log contains no matching entry, mention that in the issue and include the error shown in the app or Sonarr/Radarr.
 
 ## Building from source
 
@@ -86,10 +99,10 @@ On Windows, install Go **1.26.1** and Inno Setup **7.1.1**, then run from the re
 ./scripts/build.ps1 -ISCCExe 'C:/Path/to/ISCC.exe' -ProjectURL 'https://github.com/Veyilla/simkl-bridge-windows'
 ```
 
-The script runs the checks and creates the app, installer, Windows archive and source archive in the adjacent `Simkl-Bridge-Windows` folder. The [GitHub workflow](.github/workflows/build.yml) can also be run manually by someone with repository access; it creates artifacts without publishing a release. Race checking additionally requires a Windows C toolchain.
+The script runs the checks and creates the app, installer, Windows archive and source archive in the adjacent `Simkl-Bridge-Windows` folder. Race checking additionally requires a Windows C toolchain.
 
 ## License and credits
 
-Copyright (c) 2026 **Veyilla Nightwhisper**. Licensed under the [MIT License](LICENSE).
+Copyright © 2026 **Veyilla Nightwhisper**. Licensed under the [MIT License](LICENSE).
 
-This is an independent app, not an official Simkl product. It uses adapted Resurrector components, the Dashboard Icons Simkl image and the Go Windows library. Their original notices and license texts are included in [Third-party notices](THIRD_PARTY_NOTICES.md) and the [licenses folder](licenses).
+This is an independent app, not an official Simkl product. It uses adapted components from [Resurrector](https://github.com/Maki-Daisuke/resurrector/tree/v1.2.0) by [Daisuke (yet another) Maki](https://github.com/Maki-Daisuke), the Dashboard Icons Simkl image and the Go Windows library. Their original notices and license texts are included in [Third-party notices](THIRD_PARTY_NOTICES.md) and the [licenses folder](licenses).

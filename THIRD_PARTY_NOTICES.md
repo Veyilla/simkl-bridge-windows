@@ -6,7 +6,7 @@
 
 ## Simkl Bridge
 
-Copyright (c) 2026 Veyilla Nightwhisper. The project's own code is provided under the [MIT License](LICENSE). The components and image listed below retain their respective notices and licenses.
+Copyright © 2026 Veyilla Nightwhisper. The project's own code is provided under the [MIT License](LICENSE). The components and image listed below retain their respective notices and licenses.
 
 ## Resurrector
 

@@ -91,3 +91,5 @@ The documented check on **3 November 2026** recorded Simkl's estimated AUTH V1 r
 | Wrong destination or missing identifiers | Match series to Sonarr and movies to Radarr. Choose **Open log** to check for missing TVDB/TMDb identifiers. |
 
 See [Installation](installation.en.md) for updates and uninstall, or [How refreshing works](refresh.md) for caching details.
+
+If these checks do not resolve the problem, follow [Reporting a problem](../README.md#troubleshooting). Include the relevant log excerpt and steps to reproduce it in your issue; remove private information first. The log currently uses German messages regardless of the interface language.
