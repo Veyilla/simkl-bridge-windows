@@ -13,6 +13,7 @@
   <a href="docs/installation.en.md"><img src="https://img.shields.io/badge/Windows-x64-0078D4?style=flat-square" alt="Windows x64"></a>
   <a href="https://github.com/Veyilla/simkl-bridge-windows/commits/main/"><img src="https://img.shields.io/badge/Version-0.1.0--preview.4-D9A441?style=flat-square" alt="Version 0.1.0-preview.4"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-3DA66D?style=flat-square" alt="License: MIT"></a>
+  <img src="https://img.shields.io/badge/AI--assisted-GPT--6.1_Sol-000000?style=flat-square&amp;labelColor=333333" alt="AI-assisted: GPT-6.1 Sol">
 </p>
 
 <p align="center">
