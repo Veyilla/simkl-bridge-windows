@@ -4,6 +4,8 @@
 
 <h1 align="center">Simkl Bridge for Windows</h1>
 
+<p align="center"><strong>Your lists. Directly connected.</strong></p>
+
 <p align="center">
   Import Simkl Custom Lists into Sonarr and Radarr with a compact Windows tray app.<br>
   No Docker, Python or Node runtime required.
@@ -25,9 +27,9 @@
 
 ## What it does
 
-**Your lists. Directly connected.** Simkl Bridge is for anyone who wants to use their own Simkl lists in Sonarr and Radarr with as little setup as possible. A compact tray menu brings account connection, list selection and everyday controls together. The [setup guide](docs/setup-simkl.en.md) walks you through your first list; experienced users can start with the quick setup below.
+Simkl Bridge is for anyone who wants to use their own Simkl lists in Sonarr and Radarr with as little setup as possible. A compact tray menu brings account connection, list selection and everyday controls together. The [setup guide](docs/setup-simkl.en.md) walks you through your first list; experienced users can start with the quick setup below.
 
-- Makes selected Simkl Custom Lists available as local import lists for Sonarr and Radarr.
+- After setup, automatically retrieves your configured Simkl Custom Lists when Sonarr or Radarr requests them on its import schedule, checks for changes and passes complete lists to the destination app. Keep the bridge running; no manual export or copying is needed for subsequent updates.
 - Provides start, stop, restart, Windows startup, settings and logs from one tray menu.
 - Keeps sign-in and list settings between sessions. No console window needs to stay open.
 - Supports an AMOLED-black interface with German and English labels.
