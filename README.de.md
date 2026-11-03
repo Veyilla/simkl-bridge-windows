@@ -42,6 +42,10 @@ Simkl Bridge richtet sich an alle, die ihre eigenen Simkl-Listen mit möglichst 
 
 **Kostenloses PRO:** Ein bezahltes Abo ist nicht erforderlich. Die [Einrichtungsanleitung](docs/setup-simkl.de.md#kostenloses-pro-ohne-bezahltes-abo) erklärt die benötigten Nutzungstage und die monatliche Freischaltung.
 
+**Free-Konten und AUTH V2:** AUTH V2 unterstützt auch Free-Konten. Das Tageskontingent beträgt 500 anrechenbare Anfragen für Free, 1.000 für PRO und 10.000 für VIP, gemeinsam für die verbundenen V2-Apps. [Offizielle Abfragelimits](https://api.simkl.org/resources/rate-limits)
+
+Das Lesen der **Custom-List-Inhalte**, die diese Bridge importiert, verlangt zusätzlich PRO oder VIP. Free-Konten erhalten `premium_only` statt Listeneinträgen; seltenere Abrufe schalten diese nicht frei. [Offizielle Voraussetzungen für Custom Lists](https://api.simkl.org/guides/custom-lists)
+
 ## Installation
 
 In diesem Repository ist noch kein Release zum Herunterladen veröffentlicht. Wenn du bereits einen Vorabversions-Installer hast, folge der [Installationsanleitung](docs/installation.de.md). Andernfalls kannst du die App [selbst bauen](#selbst-bauen). Künftige Downloads findest du unter [Releases](https://github.com/Veyilla/simkl-bridge-windows/releases).

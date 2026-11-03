@@ -42,6 +42,10 @@ Simkl Bridge is for anyone who wants to use their own Simkl lists in Sonarr and 
 
 **Free PRO:** a paid subscription is not required. The [setup guide](docs/setup-simkl.en.md#free-pro-without-a-paid-subscription) explains Simkl's activity requirement and monthly activation.
 
+**Free accounts and AUTH V2:** AUTH V2 also supports Free accounts. The daily allowance is 500 counted requests for Free, 1,000 for PRO and 10,000 for VIP, shared across connected V2 apps. [Official request limits](https://api.simkl.org/resources/rate-limits)
+
+Reading **Custom List contents**, which this bridge imports, separately requires PRO or VIP. Free accounts receive `premium_only` instead of list items; a lower request frequency does not unlock them. [Official Custom Lists requirements](https://api.simkl.org/guides/custom-lists)
+
 ## Installation
 
 No downloadable release has been published in this repository yet. If you already have a preview installer, follow the [installation guide](docs/installation.en.md). Otherwise, use the [build instructions](#building-from-source). Future downloads will be listed under [Releases](https://github.com/Veyilla/simkl-bridge-windows/releases).
