@@ -39,7 +39,6 @@ Source: "{#PackageDir}\simkl-bridge.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#PackageDir}\simkl.ico"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#PackageDir}\README.de.md"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#PackageDir}\README.md"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#PackageDir}\README.en.md"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#PackageDir}\LICENSE"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#PackageDir}\THIRD_PARTY_NOTICES.md"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#PackageDir}\THIRD_PARTY_NOTICES.de.md"; DestDir: "{app}"; Flags: ignoreversion

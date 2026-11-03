@@ -4,7 +4,7 @@ function Test-Content([string]$Name,[byte[]]$Bytes,[string]$Kind) {
     $name=$Name.Replace('\','/')
     if ($name -match '(^|/)\.\.?(/|$)' -or $name.StartsWith('/')) { throw "Ungültiger Paketpfad: $name" }
     if ($name -match '(^|/)(settings\.json|authorization\.dat|lists-cache\.json|bridge\.log|\.env)(/|$)') { throw "Private Laufzeitdatei im Paket: $name" }
-    $rootFiles=@('README.md','README.de.md','README.en.md','LICENSE','THIRD_PARTY_NOTICES.md','THIRD_PARTY_NOTICES.de.md','go.mod','go.sum','.gitignore')
+    $rootFiles=@('README.md','README.de.md','LICENSE','THIRD_PARTY_NOTICES.md','THIRD_PARTY_NOTICES.de.md','go.mod','go.sum','.gitignore')
     $allowed=$rootFiles -contains $name
     if ($Kind -eq 'source') { $allowed=$allowed -or $name -match '^(assets/.+\.(png|go)|cmd/.+\.go|internal/.+\.(go|json)|docs/.+\.(md|png)|licenses/.+\.txt|packaging/.+\.(iss|ico)|scripts/.+\.ps1|\.github/workflows/.+\.yml)$' }
     else { $allowed=$allowed -or $name -match '^(simkl-bridge\.exe|simkl\.ico|docs/.+\.(md|png)|licenses/.+\.txt)$' }
