@@ -2,17 +2,26 @@
   <img src="docs/images/simkl.png" width="88" height="88" alt="Simkl Bridge icon: a white S on black">
 </p>
 
-# Simkl Bridge for Windows
+<h1 align="center">Simkl Bridge for Windows</h1>
 
-Import Simkl Custom Lists into Sonarr and Radarr with a compact Windows tray app. No Docker, Python or Node runtime required.
+<p align="center">
+  Import Simkl Custom Lists into Sonarr and Radarr with a compact Windows tray app.<br>
+  No Docker, Python or Node runtime required.
+</p>
 
-[![Windows x64](https://img.shields.io/badge/Windows-x64-0078D4?style=flat-square)](docs/installation.en.md)
-[![Version](https://img.shields.io/badge/Version-0.1.0--preview.4-D9A441?style=flat-square)](https://github.com/Veyilla/simkl-bridge-windows/commits/main/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-3DA66D?style=flat-square)](LICENSE)
+<p align="center">
+  <a href="docs/installation.en.md"><img src="https://img.shields.io/badge/Windows-x64-0078D4?style=flat-square" alt="Windows x64"></a>
+  <a href="https://github.com/Veyilla/simkl-bridge-windows/commits/main/"><img src="https://img.shields.io/badge/Version-0.1.0--preview.4-D9A441?style=flat-square" alt="Version 0.1.0-preview.4"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-3DA66D?style=flat-square" alt="License: MIT"></a>
+</p>
 
-**English** · [Deutsch](README.de.md)
+<p align="center">
+  <strong>English</strong> · <a href="README.de.md">Deutsch</a>
+</p>
 
-[Installation](docs/installation.en.md) · [Setup guide](docs/setup-simkl.en.md) · [Troubleshooting](docs/setup-simkl.en.md#troubleshooting)
+<p align="center">
+  <a href="docs/installation.en.md">Installation</a> · <a href="docs/setup-simkl.en.md">Setup guide</a> · <a href="docs/setup-simkl.en.md#troubleshooting">Troubleshooting</a>
+</p>
 
 ## What it does
 
