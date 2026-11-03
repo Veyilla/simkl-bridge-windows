@@ -84,11 +84,24 @@ Repeat setup for each list and destination app. List requests then run automatic
 
 ## Everyday use
 
+### Lists and supported media
+
+- Add several lists by selecting them from your account or pasting an accessible Simkl list link or list ID. The bridge extracts the ID from a supported link. Other users' accessible lists can also be added by link; Simkl's access restrictions still apply.
+- Series go to Sonarr; movies go to Radarr. For an anime list, Sonarr receives non-movie entries and Radarr receives anime movies. Add the same anime list for both destinations if you want both kinds. Required TVDB/TMDb mappings must be available; missing mappings produce an error. Duplicate destination IDs are included only once per list response.
+- Under **Settings → Lists**, select a configured entry and choose **Remove mapping**, then **Save and back** to stop serving that address. This removes the bridge assignment. It does not delete the Simkl list or titles in Sonarr/Radarr; manage the destination import list there as well.
+- The bridge reads Custom Lists. Create or edit their contents on Simkl. Built-in categories such as Watching or Plan to Watch are not imported through this app. Sonarr/Radarr handle monitoring, searches and downloads.
+
+### Tray controls
+
 Right-click the S icon next to the Windows clock. **Stop bridge** stops the background service but keeps the tray icon available. **Quit** closes the app and its service. Enable **Start with Windows** for automatic startup.
+
+Settings, the log and About are pages inside the same tray panel, with **Back** to return. Starting the app again opens the existing instance.
 
 The status text and hover tooltip explain the current state: green means running, amber means starting or restarting, and red means stopped or an error. **About** opens the project page, license and third-party notices.
 
 Choose **Restart bridge** to restart the service. After an unexpected exit, the app attempts up to three automatic restarts, then stops and shows the error. **Settings** lets you reconnect your account, manage lists and change the local port. Save and leave settings to resume the service.
+
+Automatic restart attempts wait 2, 5 and 15 seconds. After one minute of stable operation, the attempt counter resets. Sign-in and configuration errors stop the service for you to resolve; intentional stops do not trigger automatic restarts.
 
 <p>
   <img src="docs/images/tray-menu.en.png" width="368" alt="Simkl Bridge tray menu with status, controls, settings and language selection">
@@ -101,6 +114,8 @@ Choose **Restart bridge** to restart the service. After an unexpected exit, the 
 The bridge checks for changes when a list is requested and reuses unchanged contents. Sonarr and Radarr always receive complete lists. API failures are reported instead of being returned as empty lists. [How refreshing works](docs/refresh.md)
 
 Only configured lists are served on `127.0.0.1`. Settings, cached lists and logs stay in `%LOCALAPPDATA%\SimklBridge`. Sign-in tokens are protected with Windows DPAPI. Updates and standard uninstall preserve these data files.
+
+The bridge requests read-only access and renews its saved access token automatically when the API requires it, provided the refresh token remains valid. If authorization can no longer be renewed, reconnect under **Settings → Sign-in**. It does not synchronize changes back to Simkl.
 
 ## Troubleshooting
 

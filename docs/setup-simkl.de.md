@@ -55,6 +55,10 @@ Die Bridge speichert die Anmeldung geschützt in deinem Windows-Benutzerkonto. D
 
 Die Adresse liegt nun in der Zwischenablage. Du verwendest sie im nächsten Abschnitt. Speichere und verlasse die Einstellungsseite vor dem Test in Sonarr oder Radarr: Während der Bearbeitung pausiert der Bridge-Dienst. Wiederhole die Schritte für jede Liste und jedes Ziel.
 
+Enthält eine Anime-Liste sowohl Filme als auch andere Anime-Einträge, füge eine Sonarr- und eine Radarr-Zuordnung hinzu. Jede Adresse liefert die passenden Einträge; die benötigten TVDB-/TMDb-Kennungen müssen verfügbar sein. Zugängliche Listen anderer Nutzer kannst du ebenfalls per Link oder ID hinzufügen.
+
+Um eine eingerichtete Liste nicht mehr bereitzustellen, markiere ihren Eintrag und wähle **Zuordnung entfernen → Speichern und zurück**. Entferne oder deaktiviere bei Bedarf auch die zugehörige Importliste in Sonarr/Radarr. Das Entfernen der Bridge-Zuordnung löscht nichts auf Simkl oder in der Zielbibliothek. Listen- und Portänderungen speicherst du mit **Speichern und zurück**; mit **Zurück** verlässt du diese Änderungen ohne Speichern.
+
 ## 4. Importliste in Sonarr oder Radarr hinzufügen
 
 Im jeweiligen Zielprogramm:

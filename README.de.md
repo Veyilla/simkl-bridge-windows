@@ -84,11 +84,24 @@ Wiederhole die Einrichtung für jede Liste und jedes Zielprogramm. Danach laufen
 
 ## Im Alltag
 
+### Listen und unterstützte Medien
+
+- Füge mehrere Listen über die Auswahl deines Kontos oder über einen zugänglichen Simkl-Listenlink beziehungsweise eine Listen-ID hinzu. Aus unterstützten Links erkennt die Bridge die ID automatisch. Zugängliche Listen anderer Nutzer lassen sich ebenfalls per Link hinzufügen; Simkls Zugriffsrechte gelten weiterhin.
+- Serien gehen an Sonarr, Filme an Radarr. Bei Anime-Listen erhält Sonarr die Einträge, die keine Filme sind, und Radarr die Anime-Filme. Ordne dieselbe Anime-Liste beiden Zielen zu, wenn du beides übernehmen möchtest. Die benötigten TVDB-/TMDb-Zuordnungen müssen verfügbar sein; fehlende Zuordnungen führen zu einer Fehlermeldung. Doppelte Zielkennungen erscheinen pro Listenantwort nur einmal.
+- Markiere unter **Einstellungen → Listen** einen eingerichteten Eintrag und wähle **Zuordnung entfernen**, dann **Speichern und zurück**, um diese Adresse nicht mehr bereitzustellen. Entfernt wird die Bridge-Zuordnung. Die Simkl-Liste und Titel in Sonarr/Radarr werden dadurch nicht gelöscht; verwalte die zugehörige Importliste auch im Zielprogramm.
+- Die Bridge liest Custom Lists. Erstelle oder bearbeite deren Inhalte auf Simkl. Eingebaute Kategorien wie Watching oder Plan to Watch werden über diese App nicht importiert. Überwachung, Suche und Downloads übernimmt Sonarr/Radarr.
+
+### Bedienung im Menü
+
 Klicke mit der rechten Maustaste auf das S-Symbol neben der Windows-Uhr. **Bridge stoppen** beendet den Hintergrunddienst; das Symbol bleibt verfügbar. **Beenden** schließt die App und ihren Dienst. Mit **Mit Windows starten** aktivierst du den Autostart.
+
+Einstellungen, Protokoll und Über sind Seiten im selben Tray-Menü; mit **Zurück** gelangst du wieder zur Hauptseite. Ein erneuter App-Start öffnet die bereits laufende Instanz.
 
 Statustext und Hinweis beim Darüberfahren erklären den Zustand: Grün bedeutet laufend, Gelb Start oder Neustart und Rot gestoppt oder Fehler. Unter **Über** öffnest du die Projektseite, die Lizenz und die Quellenhinweise.
 
 Mit **Neu starten** startest du den Dienst erneut. Nach einem unerwarteten Ende versucht die App höchstens drei automatische Neustarts. Danach stoppt sie und zeigt den Fehler an. Unter **Einstellungen** kannst du dein Konto erneut verbinden, Listen verwalten und den lokalen Port ändern. Speichere und verlasse die Einstellungen, damit der Dienst fortgesetzt wird.
+
+Die automatischen Neustartversuche warten 2, 5 und 15 Sekunden. Nach einer Minute stabilem Betrieb wird der Versuchszähler zurückgesetzt. Bei Anmelde- und Konfigurationsfehlern stoppt der Dienst, damit du die Ursache beheben kannst; absichtliches Stoppen löst keinen automatischen Neustart aus.
 
 <p>
   <img src="docs/images/tray-menu.png" width="368" alt="Simkl-Bridge-Menü mit Status, Steuerung, Einstellungen und Sprachauswahl">
@@ -101,6 +114,8 @@ Mit **Neu starten** startest du den Dienst erneut. Nach einem unerwarteten Ende 
 Die Bridge prüft bei einem Listenabruf auf Änderungen und verwendet unveränderte Inhalte erneut. Sonarr und Radarr erhalten immer vollständige Listen. API-Fehler werden gemeldet und nicht als leere Listen ausgegeben. [So funktioniert die Aktualisierung](docs/refresh.de.md)
 
 Nur eingerichtete Listen sind über `127.0.0.1` erreichbar. Einstellungen, Listencache und Protokoll liegen in `%LOCALAPPDATA%\SimklBridge`. Anmeldetokens werden mit dem Windows-Benutzerschutz DPAPI geschützt. Aktualisierungen und die normale Deinstallation erhalten diese Daten.
+
+Die Bridge fordert ausschließlich lesenden Zugriff an und erneuert das gespeicherte Zugriffstoken automatisch, wenn die API es verlangt und das Refresh-Token noch gültig ist. Kann die Anmeldung nicht mehr erneuert werden, verbinde das Konto unter **Einstellungen → Anmeldung** erneut. Änderungen werden nicht zu Simkl zurückgeschrieben.
 
 ## Fehlerbehebung
 

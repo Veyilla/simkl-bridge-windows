@@ -55,6 +55,10 @@ The bridge saves the sign-in securely in your Windows account. You do not need t
 
 The address on the clipboard is the one you will use below. Save and leave the settings page before testing it in Sonarr or Radarr: the bridge pauses its service while settings are being edited. Repeat these steps for each list and destination.
 
+For an anime list containing both movies and other anime entries, add a Sonarr mapping and a Radarr mapping. Each address returns the matching entries; required TVDB/TMDb identifiers must be available. You can also add other users' accessible lists by link or ID.
+
+To stop sharing a configured list, select its entry and choose **Remove mapping → Save and back**. Remove or disable its import list in Sonarr/Radarr as appropriate. Removing the bridge mapping does not delete anything on Simkl or in the destination library. List and port changes are saved with **Save and back**; **Back** leaves those unsaved changes behind.
+
 ## 4. Add the import list to Sonarr or Radarr
 
 In the destination app:
