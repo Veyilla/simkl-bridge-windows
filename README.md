@@ -93,7 +93,7 @@ With a German interface, the path in both apps is **Einstellungen → Importlist
 
 Repeat setup for each list and destination app. List requests then run automatically while the bridge is running. If you change the bridge port, update the addresses in Sonarr/Radarr. See [Troubleshooting](#troubleshooting) if something fails.
 
-## Everyday use
+## Controls and list management
 
 ### Manage lists
 

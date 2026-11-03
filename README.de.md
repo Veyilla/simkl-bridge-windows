@@ -93,7 +93,7 @@ Bei englischer Oberfläche lautet der Menüpfad in beiden Programmen **Settings 
 
 Wiederhole die Einrichtung für jede Liste und jedes Zielprogramm. Danach laufen die Listenabrufe automatisch, solange die Bridge läuft. Nach einer Änderung des Bridge-Ports musst du die neuen Adressen erneut in Sonarr/Radarr eintragen. Bei Problemen hilft die [Fehlerbehebung](#fehlerbehebung).
 
-## Im Alltag
+## Bedienung und Listenverwaltung
 
 ### Listen verwalten
 
